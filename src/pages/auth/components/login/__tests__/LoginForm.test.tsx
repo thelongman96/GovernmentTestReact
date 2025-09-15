@@ -1,0 +1,25 @@
+import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import LoginForm from '@/components/login/LoginForm';
+
+vi.mock('@/components/login/hooks/useLoginForm', () => {
+  return {
+    __esModule: true,
+    default: () => ({
+      handleLoginClick: vi.fn(),
+    }),
+  };
+});
+
+vi.mock('@/components/common/CustomTextInput', () => ({
+  default: () => {
+    return <div>Input</div>;
+  },
+}));
+
+describe('LoginForm', () => {
+  it('render snapshot', () => {
+    const { asFragment } = render(<LoginForm />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

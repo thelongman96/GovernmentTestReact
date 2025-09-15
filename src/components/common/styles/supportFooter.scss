@@ -1,0 +1,23 @@
+@use '@/styles/colours';
+
+.supportFooter {
+  &__container {
+    background: colours.$support-background;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 4px;
+    color: colours.$support-font;
+    font-size: 1.4rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    width: 100%;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    color: colours.$primary !important;
+  }
+}

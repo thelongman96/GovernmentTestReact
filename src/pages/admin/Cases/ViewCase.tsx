@@ -1,0 +1,199 @@
+import {
+  Box,
+  Typography,
+  Container,
+  Fade,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
+import { Dashboard, ExitToApp, AccountCircle } from "@mui/icons-material";
+import useViewCase from "./hooks/useViewCase";
+import LinkWrapper from "@/components/common/LinkWrapper";
+import CustomButton from "@/components/common/CustomButton";
+
+const ViewCase = () => {
+  const {
+    user,
+    anchorEl,
+    handleMenuOpen,
+    handleMenuClose,
+    handleLogout,
+    selectedCase,
+    tasks,
+    navToDashboard,
+    navToEditTask,
+    addNewTask,
+    deleteTaskFunc,
+  } = useViewCase();
+
+  return (
+    <Fade in timeout={600}>
+      <Box sx={{ flexGrow: 1, minHeight: "100vh", bgcolor: "#f5f5f5" }}>
+        <AppBar
+          position="sticky"
+          elevation={0}
+          sx={{
+            bgcolor: "white",
+            color: "text.primary",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
+          <Toolbar>
+            <Dashboard sx={{ mr: 2, color: "primary.main" }} />
+            <Typography
+              variant="h6"
+              sx={{ flexGrow: 1, color: "primary.main", fontWeight: "bold" }}
+            >
+              Manage Case
+            </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Typography variant="body2" color="text.secondary">
+                Welcome, {user?.firstName} {user?.lastName}
+              </Typography>
+              <IconButton onClick={handleMenuOpen}>
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleMenuClose}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem onClick={handleLogout}>
+                  <ExitToApp sx={{ mr: 1 }} />
+                  Logout
+                </MenuItem>
+              </Menu>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Container maxWidth="lg" sx={{ mt: 4, pb: 4 }}>
+          <Box sx={{ mb: 3 }}>
+            <LinkWrapper
+              clickHandler={navToDashboard}
+              text="&larr; Back"
+              styles={{ marginBottom: 2, display: "inline-block" }}
+            />
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              color="text.primary"
+              gutterBottom
+            >
+              Case: {selectedCase?.title}
+            </Typography>
+            <Typography
+              variant="h6"
+              fontWeight="bold"
+              color="text.primary"
+              gutterBottom
+            >
+              Reference: {selectedCase?.referenceNumber}
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              {selectedCase?.description}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <Typography
+              variant="h6"
+              fontWeight="bold"
+              color="text.primary"
+              gutterBottom
+            >
+              Tasks
+            </Typography>
+            <div style={{ width: "200px" }}>
+              <CustomButton
+                variant="contained"
+                onClickFunc={addNewTask}
+                buttonText="Add New Task"
+                isLoading={false}
+                disabled={false}
+              />
+            </div>
+          </Box>
+          <TableContainer
+            component={Paper}
+            sx={{ borderRadius: 2, boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}
+          >
+            <Table sx={{ minWidth: 650 }}>
+              <TableHead>
+                <TableRow sx={{ bgcolor: "#f8f9fa" }}>
+                  <TableCell sx={{ fontWeight: "bold", color: "text.primary" }}>
+                    Title
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "bold", color: "text.primary" }}>
+                    Description
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "bold", color: "text.primary" }}>
+                    Status
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "bold", color: "text.primary" }}>
+                    Actions
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {tasks.length > 0 &&
+                  tasks.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      sx={{
+                        "&:last-child td, &:last-child th": { border: 0 },
+                        "&:hover": { bgcolor: "#f8f9fa" },
+                        transition: "background-color 0.2s",
+                      }}
+                    >
+                      <TableCell>
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          {row.title}
+                        </Box>
+                      </TableCell>
+                      <TableCell color="text.secondary">
+                        {row.description}
+                      </TableCell>
+                      <TableCell color="text.secondary">{row.status}</TableCell>
+                      <TableCell>
+                        <LinkWrapper
+                          clickHandler={() => navToEditTask(row.id)}
+                          text="Edit"
+                        />
+                        &nbsp;|&nbsp;
+                        <LinkWrapper
+                          clickHandler={() => deleteTaskFunc(row.id)}
+                          text="Delete"
+                        />
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Container>
+
+        {/* soon -> <KanbanBoard /> */}
+      </Box>
+    </Fade>
+  );
+};
+
+export default ViewCase;

@@ -1,7 +1,9 @@
+import { useCookies } from "react-cookie";
+
 const useAdminLayout = () => {
+	const [, setCookie] = useCookies(['loginToken']);
 	const handleLogoutClick = () => {
-		// Implement logout logic here
-		console.log("Logout clicked");
+		setCookie('loginToken', '');
 	};
 	return { handleLogoutClick };
 };

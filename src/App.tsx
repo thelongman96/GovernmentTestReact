@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CookiesProvider, useCookies } from "react-cookie";
+import { ToastContainer } from "react-toastify";
+import AdminRoutes from "@/routes/adminRoutes";
+import { useCallback, useEffect, useState } from "react";
+import AuthRoutes from "@/routes/authRoutes";
+import { validateSessionToken } from "@/services/api";
+import { useUserStore } from "@/stores/UserStore";
+import { useAuthHandler } from "@/services/authHandler";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [cookies] = useCookies(["loginToken"]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const storeProfileData = useUserStore((state) => state.storeProfileData);
+
+  const fetchUserData = useCallback(
+    async ({ loginToken }: { loginToken: string }) => {
+      const result = await validateSessionToken({ loginToken });
+      if (result.code === 200 && result.result.user) {
+        const { user } = result.result;
+        storeProfileData({ profileData: user });
+        setLoggedIn(true);
+      }
+    },
+    [storeProfileData]
+  );
+
+  useEffect(() => {
+    if (cookies.loginToken) {
+      fetchUserData({ loginToken: cookies.loginToken });
+    } else {
+      setLoggedIn(false);
+    }
+  }, [cookies, fetchUserData]);
+
+  useAuthHandler();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <CookiesProvider>
+      {loggedIn ? <AdminRoutes /> : <AuthRoutes />}
+      <ToastContainer />
+    </CookiesProvider>
+  );
+};
 
-export default App
+export default App;

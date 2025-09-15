@@ -1,0 +1,32 @@
+@use '@/styles/colours';
+
+.footer {
+  &__content {
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0 5rem;
+    width: 100%;
+    z-index: 100;
+
+    &__links {
+      color: colours.$white !important;
+      display: flex;
+      font-size: 1.5rem;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+
+      span {
+        margin: 0 1rem;
+      }
+    }
+
+    &__link {
+      margin: 0 1rem !important;
+      cursor: pointer;
+      color: colours.$white !important;
+      font-size: '1.5rem';
+    }
+  }
+}

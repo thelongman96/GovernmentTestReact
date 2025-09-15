@@ -1,0 +1,75 @@
+@use '@/styles/colours';
+
+.authStyles {
+  &__container {
+    background: colours.$white 0% 0% padding-box;
+    background-repeat: repeat;
+    min-height: 100%;
+    width: 100%;
+    flex: 1 0 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    background: colours.$background 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 6px colours.$box-shadow;
+    width: 52rem;
+    margin: 4rem auto;
+    padding: 4rem 0 0;
+    flex-direction: column;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  &__supportFooter {
+    &__container {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+
+  &__footer {
+    background-color: colours.$footer-background;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 6.6rem;
+  }
+
+  &__outlet {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__backgroundCover {
+    background: colours.$background-cover 0% 0% no-repeat padding-box;
+    left: 0;
+    min-height: 100vh;
+    opacity: 0.35;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+  }
+
+  &__content {
+    z-index: 100;
+    flex: 1 0 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
