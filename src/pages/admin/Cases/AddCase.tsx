@@ -1,13 +1,27 @@
 import {
   Box,
-  Typography,
-  Container,
-  Fade,
-  AppBar,
-  Toolbar,
-  IconButton,
+  Paper,
+  TextField,
   Menu,
+  Container,
+  Typography,
+  Grid,
+  FormControl,
+  InputLabel,
+  Select,
   MenuItem,
+  Chip,
+  Avatar,
+  Autocomplete,
+  Switch,
+  FormControlLabel,
+  Divider,
+  Card,
+  CardContent,
+  Toolbar,
+  AppBar,
+  IconButton,
+  Fade,
 } from "@mui/material";
 import { Dashboard, ExitToApp, AccountCircle } from "@mui/icons-material";
 import CaseForm from "./components/CaseForm";
@@ -75,30 +89,38 @@ const AddCase = () => {
         </AppBar>
 
         <Container maxWidth="lg" sx={{ mt: 4, pb: 4 }}>
-          <Box sx={{ mb: 3 }}>
-            <LinkWrapper
-              clickHandler={navToDashboard}
-              text="&larr; Back"
-              styles={{ marginBottom: 2, display: "inline-block" }}
-            />
-            <Typography
-              variant="h4"
-              fontWeight="bold"
-              color="text.primary"
-              gutterBottom
-            >
-              New Case
-            </Typography>
-          </Box>
-          <CaseForm
-            handleSaveClick={handleSaveClick}
-            handleInputChange={handleInputChange}
-            formData={formData}
-            loading={loading}
-            errors={errors}
-            handleResetClick={handleResetClick}
-            disabled={disabled}
-          />
+          <Grid item xs={12} lg={8}>
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Box sx={{ mb: 3 }}>
+                <LinkWrapper
+                  clickHandler={navToDashboard}
+                  text="&larr; Back"
+                  styles={{ marginBottom: 2, display: "inline-block" }}
+                />
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  New Case
+                </Typography>
+              </Box>
+              <Box
+                sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}
+              >
+                <CaseForm
+                  handleSaveClick={handleSaveClick}
+                  handleInputChange={handleInputChange}
+                  formData={formData}
+                  loading={loading}
+                  errors={errors}
+                  handleResetClick={handleResetClick}
+                  disabled={disabled}
+                />
+              </Box>
+            </Paper>
+          </Grid>
         </Container>
       </Box>
     </Fade>

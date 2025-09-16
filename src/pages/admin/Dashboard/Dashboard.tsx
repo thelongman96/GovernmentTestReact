@@ -15,6 +15,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Grid,
 } from "@mui/material";
 import { Dashboard, ExitToApp, AccountCircle } from "@mui/icons-material";
 import useDashboard from "./hooks/useDashboard";
@@ -79,19 +80,23 @@ const DashboardPage = () => {
         </AppBar>
 
         <Container maxWidth="lg" sx={{ mt: 4, pb: 4 }}>
-          <Box sx={{ mb: 3 }}>
-            <Typography
-              variant="h4"
-              fontWeight="bold"
-              color="text.primary"
-              gutterBottom
-            >
-              Case Management
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              Manage your cases
-            </Typography>
-          </Box>
+          <Grid item xs={12} lg={8}>
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Box sx={{ mb: 3 }}>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Case Management
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Manage your cases
+                </Typography>
+              </Box>
+            </Paper>
+          </Grid>
           <Box
             sx={{
               display: "flex",

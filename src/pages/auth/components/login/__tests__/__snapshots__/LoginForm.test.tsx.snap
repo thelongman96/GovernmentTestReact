@@ -2,7 +2,9 @@
 
 exports[`LoginForm > render snapshot 1`] = `
 <DocumentFragment>
-  <div>
+  <form
+    class="MuiBox-root css-0"
+  >
     <div>
       Input
     </div>
@@ -10,12 +12,31 @@ exports[`LoginForm > render snapshot 1`] = `
       Input
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1blvszr-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-fullWidth css-1edrb21-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
-      type="button"
+      type="submit"
     >
-      Login
+      Sign In
     </button>
-  </div>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
+    />
+    <div
+      class="MuiBox-root css-xi606m"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body2 css-1wle3ir-MuiTypography-root"
+      >
+        Don't have an account? 
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1acym7u-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Sign Up
+        </button>
+      </p>
+    </div>
+  </form>
 </DocumentFragment>
 `;

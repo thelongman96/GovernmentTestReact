@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Login > render snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthMd css-uv0ytb-MuiContainer-root"
+    style="opacity: 1; transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-vujl7o-MuiPaper-root-MuiCard-root"
+      style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+    >
+      <div
+        class="MuiCardContent-root css-21mhzp-MuiCardContent-root"
+      >
+        <div
+          class="MuiBox-root css-3b2wtl"
+        >
+          <div
+            class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-6rgtv3-MuiAvatar-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1sdz7zf-MuiSvgIcon-root"
+              data-testid="LockIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2m-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2m3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1z"
+              />
+            </svg>
+          </div>
+          <h1
+            class="MuiTypography-root MuiTypography-h4 css-i3raj5-MuiTypography-root"
+          >
+            Welcome Back
+          </h1>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1lr0ivj-MuiTypography-root"
+          >
+            Sign in to your account
+          </p>
+        </div>
+        <form
+          class="MuiBox-root css-0"
+        >
+          <div>
+            Input
+          </div>
+          <div>
+            Input
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-fullWidth css-1edrb21-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="submit"
+          >
+            Sign In
+          </button>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
+          />
+          <div
+            class="MuiBox-root css-xi606m"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body2 css-1wle3ir-MuiTypography-root"
+            >
+              Don't have an account? 
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1acym7u-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              >
+                Sign Up
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

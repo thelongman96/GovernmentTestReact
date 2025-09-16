@@ -15,7 +15,7 @@ const CaseForm = (props) => {
   } = props;
 
   return (
-    <Box component="form" onSubmit={handleSaveClick}>
+    <Box sx={{ width: "100%" }} component="form" onSubmit={handleSaveClick}>
       <CustomTextInput
         fullWidth
         fieldId="title"

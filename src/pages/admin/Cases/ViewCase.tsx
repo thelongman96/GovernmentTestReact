@@ -15,6 +15,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Grid,
 } from "@mui/material";
 import { Dashboard, ExitToApp, AccountCircle } from "@mui/icons-material";
 import useViewCase from "./hooks/useViewCase";
@@ -79,32 +80,36 @@ const ViewCase = () => {
           </Toolbar>
         </AppBar>
         <Container maxWidth="lg" sx={{ mt: 4, pb: 4 }}>
-          <Box sx={{ mb: 3 }}>
-            <LinkWrapper
-              clickHandler={navToDashboard}
-              text="&larr; Back"
-              styles={{ marginBottom: 2, display: "inline-block" }}
-            />
-            <Typography
-              variant="h4"
-              fontWeight="bold"
-              color="text.primary"
-              gutterBottom
-            >
-              Case: {selectedCase?.title}
-            </Typography>
-            <Typography
-              variant="h6"
-              fontWeight="bold"
-              color="text.primary"
-              gutterBottom
-            >
-              Reference: {selectedCase?.referenceNumber}
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-              {selectedCase?.description}
-            </Typography>
-          </Box>
+          <Grid item xs={12} lg={8}>
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Box sx={{ mb: 3 }}>
+                <LinkWrapper
+                  clickHandler={navToDashboard}
+                  text="&larr; Back"
+                  styles={{ marginBottom: 2, display: "inline-block" }}
+                />
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Case: {selectedCase?.title}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Reference: {selectedCase?.referenceNumber}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  {selectedCase?.description}
+                </Typography>
+              </Box>
+            </Paper>
+          </Grid>
           <Box
             sx={{
               display: "flex",

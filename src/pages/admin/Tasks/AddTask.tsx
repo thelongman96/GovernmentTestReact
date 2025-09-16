@@ -8,6 +8,8 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Paper,
+  Grid,
 } from "@mui/material";
 import { Dashboard, ExitToApp, AccountCircle } from "@mui/icons-material";
 import TaskForm from "./components/TaskForm";
@@ -76,31 +78,39 @@ const AddCase = () => {
         </AppBar>
 
         <Container maxWidth="lg" sx={{ mt: 4, pb: 4 }}>
-          <Box sx={{ mb: 3 }}>
-            <LinkWrapper
-              clickHandler={goBack}
-              text="&larr; Back"
-              styles={{ marginBottom: 2, display: "inline-block" }}
-            />
-            <Typography
-              variant="h4"
-              fontWeight="bold"
-              color="text.primary"
-              gutterBottom
-            >
-              New Task
-            </Typography>
-          </Box>
-          <TaskForm
-            handleSaveClick={handleSaveClick}
-            handleInputChange={handleInputChange}
-            formData={formData}
-            loading={loading}
-            errors={errors}
-            handleResetClick={handleResetClick}
-            disabled={disabled}
-            statusOptions={statusOptions}
-          />
+          <Grid item xs={12} lg={8}>
+            <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+              <Box sx={{ mb: 3 }}>
+                <LinkWrapper
+                  clickHandler={goBack}
+                  text="&larr; Back"
+                  styles={{ marginBottom: 2, display: "inline-block" }}
+                />
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  New Task
+                </Typography>
+              </Box>
+              <Box
+                sx={{ display: "flex", alignItems: "center", gap: 1, mb: 3 }}
+              >
+                <TaskForm
+                  handleSaveClick={handleSaveClick}
+                  handleInputChange={handleInputChange}
+                  formData={formData}
+                  loading={loading}
+                  errors={errors}
+                  handleResetClick={handleResetClick}
+                  disabled={disabled}
+                  statusOptions={statusOptions}
+                />
+              </Box>
+            </Paper>
+          </Grid>
         </Container>
       </Box>
     </Fade>
